@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    /* Global keyboard-focus indicator (WCAG 2.4.7 Focus Visible).
+       :focus-visible only fires for keyboard navigation, so mouse users
+       are unaffected while Tab users get a clear 2px green outline.   */
+    :focus-visible {
+        outline: 2px solid #16a34a; /* green-600 */
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+    /* Skip-link target — visible only when focused via keyboard */
+    .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0.5rem;
+        background: #16a34a;
+        color: #141E22;
+        padding: 0.5rem 0.75rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        z-index: 100;
+    }
+    .skip-link:focus { left: 0.5rem; }
+
+    .form-select {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAABGdBTUEAALGPC/xhBQAAAQtJREFUOBG1lEEOgjAQRalbGj2OG9caOACn4ALGtfEuHACiazceR1PWOH/CNA3aMiTaBDpt/7zPdBKy7M/DCL9pGkvxxVp7KsvyJftL5rZt1865M+Ucq6pyyF3hNcI7Cuu+728QYn/JQA5yKaempxuZmQngOwEaYx55nu+1lQh8GIatMGi+01NwBcEmhxBqK4nAPZJ78K0KKFAJmR3oPp8+Iwgob0Oa6+TLoeCvRx+mTUYf/FVBGTPRwDkfLxnaSrRwcH0FWhNOmrkWYbE2XEicqgSa1J0LQ+aPCuQgZiLnwewbGuz5MGoAhcIkCQcjaTBjMgtXGURMVHC1wcQEy0J+Zlj8bKAnY1/UzDe2dbAVqfXn6wAAAABJRU5ErkJggg==');
+        background-size: 0.7rem;
+        background-position: right 0.7rem center;
+      }
+}
