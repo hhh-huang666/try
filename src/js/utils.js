@@ -22,18 +22,9 @@ export function escapeHtml(value) {
  * Collision-resistant id: timestamp + 4 random hex chars.
  * Avoids duplicate ids when two clicks land in the same millisecond.
  */
-let lastTimestamp = 0;
-let sequence = 0;
-
 export function uniqueId() {
-  const now = Date.now();
-  if (now !== lastTimestamp) {
-    lastTimestamp = now;
-    sequence = 0;
-  }
-  const seq = sequence.toString(16).padStart(4, "0");
-  sequence++;
-  return `${now}-${seq}`;
+    const rand = Math.floor(Math.random() * 0xffff).toString(16).padStart(4, "0");
+    return `${Date.now()}-${rand}`;
 }
 
 /**
